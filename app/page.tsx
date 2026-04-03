@@ -65,12 +65,12 @@ export default async function Home() {
           your links, and understand your audience — all from one dashboard.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <SignUpButton mode="modal">
+          <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
             <Button size="lg" className="px-8">
               Get Started for Free
             </Button>
           </SignUpButton>
-          <SignInButton mode="modal">
+          <SignInButton mode="modal" forceRedirectUrl="/dashboard">
             <Button size="lg" variant="outline" className="px-8">
               Sign In
             </Button>
@@ -113,7 +113,7 @@ export default async function Home() {
         <p className="max-w-md text-muted-foreground">
           Join today and start sharing smarter links with built-in analytics.
         </p>
-        <SignUpButton mode="modal">
+        <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
           <Button size="lg" className="px-10">
             Create Free Account
           </Button>

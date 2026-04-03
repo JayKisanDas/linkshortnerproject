@@ -38,6 +38,15 @@ Read **ALL** files that apply to your task. When in doubt, read all of them.
 | Authentication, route protection, user sessions, auth state | **[docs/authentication.md](docs/authentication.md)** | Incorrect auth = critical security vulnerabilities |
 | UI components, forms, buttons, inputs, layout, styling | **[docs/ui-components.md](docs/ui-components.md)** | All UI uses shadcn/ui exclusively — no exceptions |
 
+### 🚫 NEVER USE middleware.ts — Use proxy.ts Instead
+
+> **`middleware.ts` is DEPRECATED in Next.js 16.x (the version used in this project) and MUST NOT be used under any circumstances.**
+
+- ❌ **DO NOT** create or modify `middleware.ts`
+- ✅ **ALWAYS** use `proxy.ts` for all request handling, routing logic, and route protection
+- `proxy.ts` is the modern replacement for middleware functionality in this project
+- Any code that would typically go in `middleware.ts` belongs in `proxy.ts`
+
 ### ✅ Mandatory Workflow — Follow Every Single Time
 
 1. **STOP** — do not start coding yet

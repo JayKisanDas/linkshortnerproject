@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import { shadcn } from "@clerk/themes";
 import { Button } from "@/components/ui/button";
 import "./globals.css";
 
@@ -26,7 +27,7 @@ export default function RootLayout({
       className={`${poppins.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col">
-        <ClerkProvider signInForceRedirectUrl="/dashboard" signUpForceRedirectUrl="/dashboard">
+        <ClerkProvider signInForceRedirectUrl="/dashboard" signUpForceRedirectUrl="/dashboard" appearance={{ theme: shadcn }}>
           <header className="flex items-center justify-between px-6 py-4 border-b border-border bg-background">
             <span className="text-xl font-bold text-foreground">Link Shortener</span>
             <div className="flex items-center gap-3">
