@@ -9,54 +9,6 @@ This document provides comprehensive guidelines for AI agents and LLMs working o
 3. [Coding Standards](#coding-standards)
 4. [Documentation](#documentation)
 
-## 🚨🚨🚨 CRITICAL: Required Reading Before Code Generation 🚨🚨🚨
-
-> **⛔ STOP. DO NOT WRITE A SINGLE LINE OF CODE UNTIL YOU HAVE READ THE RELEVANT DOCS. ⛔**
-
-**THIS IS AN ABSOLUTE, NON-NEGOTIABLE REQUIREMENT WITH ZERO EXCEPTIONS.**
-
-Before generating ANY code — no matter how small, trivial, or obvious — you MUST:
-
-1. **IDENTIFY** which documentation files in the `/docs` directory apply to your task
-2. **OPEN AND READ** every relevant file in `/docs` in full — do not skim, do not skip
-3. **INTERNALIZE** the patterns, conventions, and guidelines defined in those files
-4. **ONLY THEN** begin writing code, strictly following what you read
-
-### ❌ What happens if you skip this step
-
-- You **WILL** introduce security vulnerabilities (broken auth, missing authorization checks)
-- You **WILL** use the wrong UI components and break the design system
-- You **WILL** violate project conventions, requiring full rewrites
-- Your output **WILL** be rejected — this wastes everyone's time
-
-### ✅ Required Documentation by Topic
-
-Read **ALL** files that apply to your task. When in doubt, read all of them.
-
-| Task Area | Required File | Why It Matters |
-|---|---|---|
-| Authentication, route protection, user sessions, auth state | **[docs/authentication.md](docs/authentication.md)** | Incorrect auth = critical security vulnerabilities |
-| UI components, forms, buttons, inputs, layout, styling | **[docs/ui-components.md](docs/ui-components.md)** | All UI uses shadcn/ui exclusively — no exceptions |
-
-### 🚫 NEVER USE middleware.ts — Use proxy.ts Instead
-
-> **`middleware.ts` is DEPRECATED in Next.js 16.x (the version used in this project) and MUST NOT be used under any circumstances.**
-
-- ❌ **DO NOT** create or modify `middleware.ts`
-- ✅ **ALWAYS** use `proxy.ts` for all request handling, routing logic, and route protection
-- `proxy.ts` is the modern replacement for middleware functionality in this project
-- Any code that would typically go in `middleware.ts` belongs in `proxy.ts`
-
-### ✅ Mandatory Workflow — Follow Every Single Time
-
-1. **STOP** — do not start coding yet
-2. **IDENTIFY** the relevant `/docs` files for this task
-3. **READ** each file completely using the file reading tool
-4. **CONFIRM** you understand the patterns before proceeding
-5. **GENERATE** code that strictly follows the documentation
-
-> 💡 If you are unsure whether a docs file applies to your task — **read it anyway**. It takes seconds and prevents hours of rework.
-
 ## Project Overview
 
 This is a link shortener application built with modern web technologies. The application allows users to:
@@ -66,10 +18,10 @@ This is a link shortener application built with modern web technologies. The app
 - Manage their links with authentication
 - Share links publicly or privately
 
-**Project Type:** Full-stack Next.js application  
-**Database:** PostgreSQL (via Neon Database)  
-**ORM:** Drizzle ORM  
-**Authentication:** Clerk  
+**Project Type:** Full-stack Next.js application
+**Database:** PostgreSQL (via Neon Database)
+**ORM:** Drizzle ORM
+**Authentication:** Clerk
 **Styling:** Tailwind CSS v4
 
 ## Technology Stack
@@ -102,26 +54,22 @@ This is a link shortener application built with modern web technologies. The app
 ### General Principles
 
 1. **Type Safety First**
-
    - Always use TypeScript with strict mode enabled
    - Avoid `any` types; use `unknown` or proper type definitions
    - Export and reuse type definitions across files
 
 2. **Component Organization**
-
    - Use functional components with TypeScript
    - Place reusable components in appropriate directories
    - Keep components focused and single-responsibility
 
 3. **File Naming**
-
    - Use kebab-case for directories: `link-manager/`
    - Use PascalCase for React components: `LinkCard.tsx`
    - Use camelCase for utilities and hooks: `useLinks.ts`
    - Use kebab-case for regular TypeScript files: `api-client.ts`
 
 4. **Import Organization**
-
    - Group imports: external packages → internal modules → types → styles
    - Use path aliases (`@/`) defined in tsconfig.json
    - Avoid circular dependencies
@@ -136,18 +84,15 @@ This is a link shortener application built with modern web technologies. The app
 ### Next.js Specific
 
 1. **App Router Convention**
-
    - Use Server Components by default
    - Add `"use client"` directive only when needed
    - Follow Next.js 16.x file conventions (page.tsx, layout.tsx, etc.)
 
 2. **Metadata**
-
    - Export metadata objects for SEO
    - Use generateMetadata for dynamic pages
 
 3. **Performance**
-
    - Use dynamic imports for large components
    - Implement proper loading states
    - Optimize images with next/image
@@ -160,7 +105,6 @@ This is a link shortener application built with modern web technologies. The app
 ### Database & ORM
 
 1. **Drizzle ORM Patterns**
-
    - Define schemas in `db/schema.ts`
    - Use Drizzle's type-safe query builder
    - Export types from schema definitions
@@ -174,7 +118,6 @@ This is a link shortener application built with modern web technologies. The app
 ### Authentication
 
 1. **Clerk Integration**
-
    - Wrap app with ClerkProvider in root layout
    - Use Clerk hooks for auth state
    - Protect routes with Clerk middleware
@@ -190,7 +133,6 @@ This is a link shortener application built with modern web technologies. The app
 ### Code Comments
 
 1. **When to Comment**
-
    - Complex business logic
    - Non-obvious algorithmic decisions
    - Workarounds for known issues
@@ -214,7 +156,6 @@ This is a link shortener application built with modern web technologies. The app
 ### Component Documentation
 
 1. **Props Interface**
-
    - Document complex props with JSDoc
    - Provide examples for non-trivial usage
    - Export prop types for reuse
