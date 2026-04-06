@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { SignUpButton, SignInButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link2, BarChart3, ShieldCheck, Zap, Globe, Copy } from "lucide-react";
+import { Link2, ShieldCheck, Zap, Globe, Copy } from "lucide-react";
 
 const features = [
   {
@@ -11,12 +11,6 @@ const features = [
     title: "Shorten Any URL",
     description:
       "Turn long, unwieldy URLs into clean, shareable links in seconds.",
-  },
-  {
-    icon: BarChart3,
-    title: "Track Analytics",
-    description:
-      "See how many times your links are clicked with detailed visit analytics.",
   },
   {
     icon: ShieldCheck,
@@ -56,13 +50,11 @@ export default async function Home() {
           Fast, simple link shortening
         </div>
         <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          Shorten links. <span className="text-primary">Track results.</span>
-          <br />
-          Share smarter.
+          Shorten links. <span className="text-primary">Share smarter.</span>
         </h1>
         <p className="max-w-xl text-lg text-muted-foreground leading-relaxed">
-          Create compact, memorable links in seconds. Monitor clicks, manage
-          your links, and understand your audience — all from one dashboard.
+          Create compact, memorable links in seconds. Manage all your links from
+          one simple dashboard.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
@@ -111,7 +103,7 @@ export default async function Home() {
           Ready to shorten your first link?
         </h2>
         <p className="max-w-md text-muted-foreground">
-          Join today and start sharing smarter links with built-in analytics.
+          Join today and start sharing smarter, shorter links.
         </p>
         <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
           <Button size="lg" className="px-10">
