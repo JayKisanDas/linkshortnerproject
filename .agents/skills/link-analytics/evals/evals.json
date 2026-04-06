@@ -1,0 +1,23 @@
+{
+  "skill_name": "link-analytics",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Can you generate a bar chart showing how many links were created each month over the past year? The DATABASE_URL is in the .env.local file.",
+      "expected_output": "A `links_per_month.png` file in the project root containing a bar chart with 12 monthly bars, labelled with month names on the x-axis and link counts on the y-axis.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I want to see link creation analytics for the past 12 months — plot it as a PNG.",
+      "expected_output": "The script runs, reads DATABASE_URL from the .env file, queries the links table, and outputs `links_per_month.png` with a correctly formatted bar chart.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Show me a monthly breakdown of how many short links have been created since last year. Export it as an image.",
+      "expected_output": "`links_per_month.png` is created. Months with zero links show a bar of height 0 rather than being omitted. The chart title reads 'Links Created — Past 12 Months'.",
+      "files": []
+    }
+  ]
+}

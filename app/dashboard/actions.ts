@@ -9,7 +9,17 @@ import {
 } from "@/data/links";
 
 const createLinkSchema = z.object({
-  url: z.string().url("Please enter a valid URL"),
+  url: z
+    .string()
+    .url("Please enter a valid URL")
+    .refine((url) => {
+      try {
+        const parsed = new URL(url);
+        return parsed.protocol === "http:" || parsed.protocol === "https:";
+      } catch {
+        return false;
+      }
+    }, "Only http and https URLs are allowed"),
   customSlug: z
     .string()
     .min(3, "Custom slug must be at least 3 characters")
@@ -43,7 +53,17 @@ export async function createLink(input: CreateLinkInput) {
 
 const updateLinkSchema = z.object({
   id: z.string().min(1),
-  url: z.string().url("Please enter a valid URL"),
+  url: z
+    .string()
+    .url("Please enter a valid URL")
+    .refine((url) => {
+      try {
+        const parsed = new URL(url);
+        return parsed.protocol === "http:" || parsed.protocol === "https:";
+      } catch {
+        return false;
+      }
+    }, "Only http and https URLs are allowed"),
   shortCode: z
     .string()
     .min(3, "Short code must be at least 3 characters")
